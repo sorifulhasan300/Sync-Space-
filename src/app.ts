@@ -1,6 +1,9 @@
 import express, { Application, Request, Response } from "express";
 import cors from "cors";
 import { connectDB } from "./config/db";
+import { StatusCodes } from "http-status-codes";
+import { BaseRouter } from "./router/router";
+import { globalErrorHandler } from "./middleware/error.middleware";
 
 const app: Application = express();
 
@@ -11,9 +14,18 @@ app.use(express.json());
 // Connect Database
 connectDB();
 
+//Routes
+app.use("/api/v1", BaseRouter);
+
+// Global Error Handler
+app.use(globalErrorHandler);
+
+// auth middleware
+app.use(AuthMiddleware);
+
 // Test Route to check Server & DB Status
 app.get("/test", async (req: Request, res: Response) => {
-  res.status(200).json({
+  res.status(StatusCodes.OK).json({
     status: "success",
     message: "Server is running and Database connection is verified!",
     timestamp: new Date(),
