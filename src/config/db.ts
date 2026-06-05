@@ -3,8 +3,7 @@ import { env } from "./env.config";
 
 export const connectDB = async (): Promise<void> => {
   try {
-    const mongoUri =
-      env.DATABASE_URL || "mongodb://localhost:27017/resource-booking";
+    const mongoUri = env.DATABASE_URL;
     await mongoose.connect(mongoUri);
     console.log("MongoDB Connected Successfully!");
   } catch (error) {
