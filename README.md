@@ -92,7 +92,7 @@ src/
 ### Step 1: Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/sorifulhasan300/Sync-Space-
 cd SyncSpace
 ```
 
