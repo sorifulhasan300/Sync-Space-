@@ -1,6 +1,6 @@
 import express from "express";
+import { env } from "./config/env.config";
 const app = express();
-const PORT = 3000;
 
 // Define a simple root route
 app.get("/", (req, res) => {
@@ -8,6 +8,6 @@ app.get("/", (req, res) => {
 });
 
 // Start the server and listen for connections
-app.listen(PORT, () => {
-  console.log(`Server is running at http://localhost:${PORT}`);
+app.listen(env.PORT, () => {
+  console.log(`Server is running at http://localhost:${env.PORT}`);
 });
