@@ -1,8 +1,8 @@
 import { Router } from "express";
 import { AuthRoutes } from "../app/modules/auth/auth.route";
-import { OrganizationRoutes } from "../app/modules/Organization/organization.route";
-import { ResourceRoutes } from "../app/modules/Resource/resource.route";
-import { BookingRoutes } from "../app/modules/Booking/booking.route";
+import { OrganizationRoutes } from "../app/modules/organization/organization.route";
+import { ResourceRoutes } from "../app/modules/resource/resource.route";
+import { BookingRoutes } from "../app/modules/booking/booking.route";
 import { AvailabilityRoutes } from "../app/modules/availability/availability.route";
 
 const router = Router();

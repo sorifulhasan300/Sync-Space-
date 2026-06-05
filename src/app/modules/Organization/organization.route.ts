@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { OrganizationController } from "./organization.controller";
 import { validateRequest } from "../../../middleware/validateRequest";
 import { OrganizationValidations } from "../../../validatons/organization.validation";
+import { OrganizationController } from "./organization.controller";
 
 const router = Router();
 

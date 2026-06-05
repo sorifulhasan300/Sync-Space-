@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import { OrganizationService } from "./organization.service";
 import { catchAsync } from "../../../utils/catchAsync";
 import { StatusCodes } from "http-status-codes";
+import { OrganizationService } from "./organization.service";
 
 const createOrganization = catchAsync(async (req: Request, res: Response) => {
   const result = await OrganizationService.createOrganization(req.body);

@@ -2,8 +2,8 @@ import { Router } from "express";
 import { USER_ROLES } from "../../../constants/user.constant";
 import { authCheck, tenantGuard } from "../../../middleware/auth.middleware";
 import { validateRequest } from "../../../middleware/validateRequest";
-import { BookingController } from "./booking.controller";
 import { BookingValidations } from "../../../validatons/booking.validation";
+import { BookingController } from "./booking.controller";
 
 const router = Router();
 

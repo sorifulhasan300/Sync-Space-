@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { catchAsync } from "../../../utils/catchAsync";
-import { ResourceService } from "./resource.service";
 import { StatusCodes } from "http-status-codes";
+import { ResourceService } from "./resource.service";
 
 const createResource = catchAsync(async (req: Request, res: Response) => {
   const tenantId = req.tenantId as string;

@@ -4,6 +4,7 @@ import { connectDB } from "./config/db";
 import { StatusCodes } from "http-status-codes";
 import { BaseRouter } from "./router/router";
 import { globalErrorHandler } from "./middleware/error.middleware";
+import { notFoundHandler } from "./middleware/not-found.middleware";
 
 const app: Application = express();
 
@@ -17,9 +18,11 @@ connectDB();
 //Routes
 app.use("/api/v1", BaseRouter);
 
+// Not Found Handler
+app.use(notFoundHandler);
+
 // Global Error Handler
 app.use(globalErrorHandler);
-
 
 // Test Route to check Server & DB Status
 app.get("/test", async (req: Request, res: Response) => {

@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { BookingService } from "./booking.service";
 import { catchAsync } from "../../../utils/catchAsync";
+import { BookingService } from "./booking.service";
 
 const createBooking = catchAsync(async (req: Request, res: Response) => {
   const tenantId = req.tenantId as string;
