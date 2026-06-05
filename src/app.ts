@@ -6,6 +6,8 @@ import { BaseRouter } from "./router/router";
 import { globalErrorHandler } from "./middleware/error.middleware";
 import { notFoundHandler } from "./middleware/not-found.middleware";
 import { globalLimiter } from "./middleware/rateLimiter.middleware";
+import swaggerUi from "swagger-ui-express";
+import { swaggerSpec } from "./config/swagger";
 
 const app: Application = express();
 
@@ -19,14 +21,8 @@ connectDB();
 //rate limiter
 app.use(globalLimiter);
 
-//Routes
-app.use("/api/v1", BaseRouter);
-
-// Not Found Handler
-app.use(notFoundHandler);
-
-// Global Error Handler
-app.use(globalErrorHandler);
+// Swagger Documentation
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Test Route to check Server & DB Status
 app.get("/test", async (req: Request, res: Response) => {
@@ -36,5 +32,14 @@ app.get("/test", async (req: Request, res: Response) => {
     timestamp: new Date(),
   });
 });
+
+//Routes
+app.use("/api/v1", BaseRouter);
+
+// Not Found Handler
+app.use(notFoundHandler);
+
+// Global Error Handler
+app.use(globalErrorHandler);
 
 export default app;
