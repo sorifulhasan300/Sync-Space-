@@ -27,14 +27,13 @@ const UserSchema = new Schema<IUser>(
 
 UserSchema.index({ tenantId: 1, email: 1 }, { unique: true });
 
-UserSchema.pre("save", async function (this: IUser, next: any) {
-  if (!this.isModified("password")) return next();
+UserSchema.pre("save", async function (this: IUser) {
+  if (!this.isModified("password")) return;
   try {
     const salt = await bcrypt.genSalt(10);
     this.password = await bcrypt.hash(this.password!, salt);
-    next();
   } catch (error: any) {
-    next(error);
+    throw error;
   }
 });
 

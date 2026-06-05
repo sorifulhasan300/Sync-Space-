@@ -20,8 +20,6 @@ app.use("/api/v1", BaseRouter);
 // Global Error Handler
 app.use(globalErrorHandler);
 
-// auth middleware
-app.use(AuthMiddleware);
 
 // Test Route to check Server & DB Status
 app.get("/test", async (req: Request, res: Response) => {

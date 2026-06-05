@@ -1,0 +1,4 @@
+export enum USER_ROLES {
+  ORG_ADMIN = "ORG_ADMIN",
+  EMPLOYEE = "EMPLOYEE",
+}
