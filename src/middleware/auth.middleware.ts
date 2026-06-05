@@ -17,6 +17,7 @@ export const authCheck = (...requiredRoles: USER_ROLES[]) => {
       const authHeader = req.headers.authorization;
       if (!authHeader) {
         res.status(StatusCodes.UNAUTHORIZED).json({
+          code: StatusCodes.UNAUTHORIZED,
           status: "fail",
           message: "You are not authorized! Token missing.",
         });
@@ -33,6 +34,7 @@ export const authCheck = (...requiredRoles: USER_ROLES[]) => {
 
       if (requiredRoles.length && !requiredRoles.includes(role)) {
         res.status(StatusCodes.FORBIDDEN).json({
+          code: StatusCodes.FORBIDDEN,
           status: "fail",
           message: "You have no permission to access this route",
         });
@@ -45,6 +47,7 @@ export const authCheck = (...requiredRoles: USER_ROLES[]) => {
       next();
     } catch (error) {
       res.status(StatusCodes.FORBIDDEN).json({
+        code: StatusCodes.FORBIDDEN,
         status: "fail",
         message: "Unauthorized: Invalid or expired token",
       });
