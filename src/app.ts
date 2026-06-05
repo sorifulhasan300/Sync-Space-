@@ -5,6 +5,7 @@ import { StatusCodes } from "http-status-codes";
 import { BaseRouter } from "./router/router";
 import { globalErrorHandler } from "./middleware/error.middleware";
 import { notFoundHandler } from "./middleware/not-found.middleware";
+import { globalLimiter } from "./middleware/rateLimiter.middleware";
 
 const app: Application = express();
 
@@ -14,6 +15,9 @@ app.use(express.json());
 
 // Connect Database
 connectDB();
+
+//rate limiter
+app.use(globalLimiter);
 
 //Routes
 app.use("/api/v1", BaseRouter);
