@@ -5,8 +5,5 @@ node_modules/
 dist/
 
 # Environmental variables (Sensitive data)
-.env
-.env.local
-.env.development
-.env.test
 .env.*.local
+config.bat

@@ -21,7 +21,7 @@ const checkResourceAvailability = async (
     throw new Error("Organization is inactive or not found");
 
   const { timezone, workingHours } = org;
-  const bufferTime = resource.bufferTime; // মিনিটে (e.g., 15)
+  const bufferTime = resource.bufferTime;
 
   const startWork = DateTime.fromISO(`${dateStr}T${workingHours.start}`, {
     zone: timezone,

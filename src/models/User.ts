@@ -19,7 +19,7 @@ const UserSchema = new Schema<IUser>(
     },
     name: { type: String, required: true, trim: true },
     email: { type: String, required: true, trim: true, lowercase: true },
-    password: { type: String, required: true, select: false }, // Query করার সময় পাসওয়ার্ড যেন বাই-ডিফল্ট না আসে
+    password: { type: String, required: true, select: false },
     role: { type: String, enum: ["ORG_ADMIN", "EMPLOYEE"], required: true },
   },
   { timestamps: true },
